@@ -1,12 +1,12 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
-$(call inherit-product-if-exists, vendor/lineage/config/sakura.mk)
+$(call inherit-product-if-exists, vendor/lineage/config/scandium.mk)
 $(call inherit-product-if-exists, external/faceunlock/config.mk)
 
 # Bootanimation
 include vendor/lineage/config/bootanimation.mk
 
-PRODUCT_BRAND ?= ProjectSakura
+PRODUCT_BRAND ?= ScandiumOS
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -192,12 +192,12 @@ PRODUCT_PACKAGE_OVERLAYS += vendor/lineage/overlay/common
 
 PRODUCT_VERSION_MAJOR = 6
 PRODUCT_VERSION_MINOR = 0
-SAKURA_BUILD := UNOFFICIAL-ALPHA
-SAKURA_BUILD_ZIP_TYPE := VANILLA
+SCANDIUM_BUILD := UNOFFICIAL-ALPHA
+SCANDIUM_BUILD_ZIP_TYPE := VANILLA
 
 #Official and unofficial for the sake of the world
 ifeq ($(SAKURA_OFFICIAL), true)
-    SAKURA_BUILD := OFFICIAL-ALPHA
+    SCANDIUM_BUILD := OFFICIAL-ALPHA
     PRODUCT_PACKAGES += \
     Updater
 endif
@@ -215,9 +215,9 @@ else ifeq ($(SAKURA_BUILD_TYPE), microg)
 endif
 
 # Increase sakura Version with each major release.
-LINEAGE_VERSION := ProjectSakura-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(SAKURA_BUILD_ZIP_TYPE)-$(shell date +%Y%m%d-%H%M)-$(LINEAGE_BUILD)-$(SAKURA_BUILD)
-LINEAGE_DISPLAY_VERSION := ProjectSakura-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_BUILD)-$(SAKURA_BUILD)
-SAKURA_VERSION := $(LINEAGE_VERSION)
+LINEAGE_VERSION := ScandiumOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(SCANDIUM_BUILD_ZIP_TYPE)-$(shell date +%Y%m%d-%H%M)-$(LINEAGE_BUILD)-$(SCANDIUM_BUILD)
+LINEAGE_DISPLAY_VERSION := ScandiumOS-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(LINEAGE_BUILD)-$(SCANDIUM_BUILD)
+SCANDIUM_VERSION := $(LINEAGE_VERSION)
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
 -include vendor/lineage/config/partner_gms.mk
